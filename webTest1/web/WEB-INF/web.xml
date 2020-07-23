@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--
+     配置上下文参数 ，属于整个web工程，所有的servlet，lister等都可以获取这些参数
+     -->
+    <context-param>
+        <param-name>con1</param-name>
+        <param-value>val1</param-value>
+    </context-param>
+
+
+
+    <!--
+     给tomcat配置servlet程序
+     servlet-name标签：给servlet程序起别名
+     servlet-class标签：servlet程序的全类名，包括包
+     init-param是初始化参数的配置，可以配多个，每个servlet的该参数
+     只能由自己来获取其他不行，就算servletcontext也不能获取
+     -->
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>test1.HelloServlet</servlet-class>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>root</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jdbcurl</param-name>
+            <param-value>jdbc:mysql://localhost:3306/test</param-value>
+        </init-param>
+    </servlet>
+    <!--
+     给servlet配置访问地址
+     servlet-name标签：告诉服务器配置的地址给那个servlet使用
+     url-pattern标签配置访问地址:
+        / 斜杠在服务器解析时表示的地址为：http://ip:port/工程路径
+        /hello 表示地址为 http://ip:port/工程路径/hello
+        ，一般来说，建议url配置为类的名字小写，例如XXServlet，path就是/xx
+        约定大于配置
+     -->
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>HelloServlet2</servlet-name>
+        <servlet-class>test1.HelloServlet2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HellloServlet3</servlet-name>
+        <servlet-class>test1.HellloServlet3</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RequestAPITestServlet</servlet-name>
+        <servlet-class>test1.RequestAPITestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReforwardServlet</servlet-name>
+        <servlet-class>test1.ReforwardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForwardC</servlet-name>
+        <servlet-class>test1.ForwardC</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResponseIOServlet</servlet-name>
+        <servlet-class>test1.ResponseIOServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RedirectServlet</servlet-name>
+        <servlet-class>test1.RedirectServlet</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>HelloServlet2</servlet-name>
+        <url-pattern>/hello2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HellloServlet3</servlet-name>
+        <url-pattern>/hello3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestAPITestServlet</servlet-name>
+        <url-pattern>/requestAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReforwardServlet</servlet-name>
+        <url-pattern>/Reforward</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForwardC</servlet-name>
+        <url-pattern>/ForwardC</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResponseIOServlet</servlet-name>
+        <url-pattern>/ResponseIO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RedirectServlet</servlet-name>
+        <url-pattern>/Redirect</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

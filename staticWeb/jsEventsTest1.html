@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /*
+        常用事件
+        onload:页面加载完成，常用于页面js初始化操作
+        onclick:单击事件  常用于按钮点击
+        onblur:失去焦点事件  常用于输入框失去焦点后
+        onchange:内容发生改变事件  常用于下拉列表和输入框发生改变
+        onsubmit:表单提交事件 用于表单提交后
+
+
+        事件注册分为静态注册和动态注册两种：
+        1，什么是事件注册：
+            告诉浏览器，事件响应后应该执行哪些操作代码
+        2，静态注册：
+            通过html标签的事件属性直接赋予事件的响应后的代码，成为静态注册
+        3，动态注册：
+            先通过js得到标签的dom对象，然后通过dom对象.事件名=function(){}
+            这种形式赋予事件响应的代码
+
+
+
+
+
+        */
+
+
+        // function onloadFunc(){
+        //     alert('静态注册onload事件，是浏览器自己触发的');
+        // }
+        //
+        // window.onload = function(){
+        //     alert('动态注册onload事件，是js获取window对象调用的');
+        // }
+
+        function onclickFunc(){
+            alert('click button by static method');
+        }
+
+        //动态注册onclick
+        window.onload = function(){
+            var btnObj = document.getElementById('button1');
+            alert(btnObj);
+            btnObj.onclick = function(){
+                alert('click button by dynamic');
+            }
+        }
+        /*
+        document:js语言提供个一个对象
+        element：元素(标签)
+        id:id属性
+
+         */
+
+        //onblur static
+        function onblurFunc(){
+            console.log('静态注册数据焦点事件');
+            //console是控制台对象，专门向浏览器控制台打印输出，用于测试使用
+
+        }
+
+        //动态注册
+
+        window.onload = function(){
+            var passObj = document.getElementById('passwd1');
+            alert(passObj);
+            passObj.onblur = function(){
+                console.log('dynamimc');
+            }
+        }
+
+        //onchange
+        function onchangeFunc(){
+            alert('static change');
+        }
+
+        window.onload = function(){
+            var selectObj = document.getElementById('select1');
+            alert(selectObj);
+            selectObj.onchange = function(){
+                console.log('dynamic change');
+            }
+        }
+
+        //onsubmit
+        function onsubmitFunc(){
+            alert('static submit');
+            return false;
+        }
+
+        window.onload = function(){
+            var formObj = document.getElementById('form1');
+            alert(formObj);
+            formObj.onsubmit = function(){
+                console.log('dynamic submimt');
+                return false;
+            }
+        }
+
+    </script>
+</head>
+<!--<body onload="onloadFunc()"> 静态注册-->
+<body>
+
+<button onclick="onclickFunc()">静态注册</button>
+<button id="button1">动态注册</button>
+
+<table>
+    <tr>
+        <td>用户名</td>
+        <td><input type="text" onblur="onblurFunc();"/></td>
+    </tr>
+    <tr>
+        <td>密码</td>
+        <td><input type="password" id="passwd1"/></td>
+    </tr>
+    <tr>
+        <td>
+            <select onchange="onchangeFunc();">
+                <option>p1</option>
+                <option>p2</option>
+                <option>p3</option>
+            </select>
+        </td>
+        <td>
+            <select id="select1">
+                <option>b1</option>
+                <option>b2</option>
+                <option>b3</option>
+            </select>
+        </td>
+    </tr>
+
+    <!--静态注册onsubmit方法的return不能少，返回true表示可以提交，false表示不可以提交-->
+    <form action="https://www.baidu.com/" method="get" onsubmit="return onsubmitFunc();">
+        <input type="text" value="默认值" name="inputText"/>
+        <input type="submit" value="静态提交"/>
+    </form>
+
+    <form action="https://www.baidu.com/" method="get">
+        <input type="submit" value="动态提交" id="form1"/>
+    </form>
+
+</table>
+
+</body>
+</html>

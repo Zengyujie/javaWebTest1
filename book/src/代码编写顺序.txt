@@ -1,0 +1,32 @@
+1，数据库表
+
+2，javabean
+
+3，编写dao模块和测试
+
+4，编写service模块和测试
+
+5，编写模块web层，和页面联合调试
+
+网站前台：给普通用户使用，一般不用权限检查就恶意访问的资源和功能
+
+网站后台：给管理员使用，一般需要权限检查才可以访问到的资源
+
+分页信息：
+
+1，pageNo：当前页码
+    由用户发送
+2，pageTotal：总页码
+    当记录总数%每一页的数量 > 0时，加一
+3，pageTotalCount：总记录数
+    select count(*) from 表
+4，pageSize：页面显示数量
+    可以由客户端进行传递，也可以由页面布局决定
+5，items：当前页面数据
+    select * from 表 limit begin， pageSize
+    begin = (pageNo - 1) * pageSize
+
+
+前台分页设想：
+    由于数据需要请求后才获得，因此让首页只负责请求servlet，然后servlet
+    获取数据，传递给另一个页面来显示

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="http://localhost:8080/webTest1_war_exploded/hello3" method="post">
+    <input type="hidden" name="block1" value="block1" />
+    <input type="hidden" name="block2" value="block2" />
+    <input type="submit" value="提交数据"/>
+</form>
+
+<a href="a/b/c.html">跳转到a/b/c</a>
+<a href="http://localhost:8080/webTest1_war_exploded/ForwardC">forwardC</a>
+<br/>
+<br/>
+<form action="http://localhost:8080/webTest1_war_exploded/ResponseIO" method="get">
+    <input type="hidden" name="block11" value="block11" />
+    <input type="hidden" name="block12" value="block12" />
+    <input type="submit" value="提交给响应"/>
+</form>
+
+
+<br/>
+<br/>
+<form action="http://localhost:8080/webTest1_war_exploded/Redirect" method="get">
+    <input type="hidden" name="block111" value="block111" />
+    <input type="hidden" name="block112" value="block112" />
+    <input type="submit" value="响应重定向"/>
+</form>
+</body>
+</html>

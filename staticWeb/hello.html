@@ -1,0 +1,125 @@
+<!DOCTYPE html><!--约束，声明-->
+<html lang="zh_CN"><!--en为英文，zh_CN为中文 -->
+<head>
+    <meta charset="UTF-8">
+    <title>标题</title>
+</head>
+<body>
+
+<!--
+action属性设置要提交的服务器地址
+method属性这是提交的方式GET或POST
+
+提交的url值
+https://www.baidu.com/?action=login&sex=on
+
+表单提交时数据没有发送给服务器的三种情况
+1，表单内元素没有name属性
+2，单选，复选，下拉选择框的元素都要添加value属性
+3，表单项不在提交的form标签中
+
+1，get请求的特点是：
+    1，浏览器中地址格式是form中的 action属性+？+请求参数
+        参数格式是 值2=value1&值2=value2
+    2，不安全
+    3，字符长度有限制，超过会截断不发，应该用post发送
+
+2，post请求的特点是：
+    1，浏览器中地址格式只有action的属性值
+    2，相对于get属性安全
+    3，理论上没有数据长度的限制
+
+-->
+<form action="https://www.baidu.com" method="get">
+    <!--
+     form标签就是表单
+
+
+     -->
+    <input type="hidden" name="action" value="login">
+    <table>
+        <tr>
+            <td>
+                用户名称:
+            </td>
+            <td>
+                <input name="user" type="text" value="默认值"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                密码：
+            </td>
+            <td>
+                <input name="password" type="password" value="默认值"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                确认密码：
+            </td>
+            <td>
+                <input type="password"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                性别：
+            </td>
+            <td>
+                <input type="radio" value="boy" name="sex"/>男
+            </td>
+            <td>
+                <input type="radio" value="girl" name="sex">女 <!-- name表示给单选框分组-->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                爱好：
+            </td>
+            <td>
+                <input type="checkbox" checked="checked"/>java
+            </td>
+            <td>
+                <input type="checkbox"/>c++
+            </td>
+            <td>
+                <input type="checkbox"/>python
+            </td>
+        </tr>
+        <tr>
+            <td>
+                国籍：
+            </td>
+            <td>
+                <select><!-- 下拉列表框-->
+                    <option selected="selected">中国</option>
+                    <option>美国</option>
+                    <option>日本</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                自我评价：
+            </td>
+            <td>
+                <textarea rows="10" cols="20">默认值</textarea>
+            </td>
+        </tr>
+        <tr>
+            <input type="reset" value="重置"/>
+            <input type="submit" value="提交"/>
+            <input type="button" value="按钮"/>
+            <input type="file" value="文件上传"/>
+            <input type="hidden" value="隐藏域，看不见的">
+        </tr>
+    </table>
+</form>
+
+
+<button onclick="alert('hello')" value="按钮">button</button>
+<font color="red" face="宋体" size="8">我是字体标签</font>
+<a href="https://www.bilibili.com/" target="_blank">click</a>
+</body>
+</html>

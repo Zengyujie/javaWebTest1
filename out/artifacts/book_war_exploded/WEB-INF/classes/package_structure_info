@@ -1,0 +1,15 @@
+目录设计：
+
+web层           com.book.web/servlet/controller
+
+service层       com.book.service            service接口包
+                com.book.service.impl       service接口实现包
+
+dao持久层       com.book.dao                dao接口包
+                com.book.dao.impl           dao接口实现类
+
+实体bean对象    com.book.pojo/entity/domain/bean   javaBean类
+
+测试包          com.book.test/junit        测试类
+
+工具类          com.book.utils             工具类包

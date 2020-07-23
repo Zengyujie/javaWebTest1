@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script type="text/javascript">-->
+<!--        window.onload = function(){-->
+<!--            var btnObj = document.getElementById('btnId');-->
+<!--            btnObj.onclick = function(){-->
+<!--                alert('click button');-->
+<!--            }-->
+
+
+<!--        }-->
+
+
+<!--    </script>-->
+    <script type="text/javascript" src="jquery.js"></script>
+
+
+    <script type="text/javascript">
+
+
+        $(function(){//==window.onload = function(){}
+            var $bt1 = $("#btnId");//表示按照id查询标签
+            $bt1.click(function(){//给bt1绑定click响应
+                alert('jquery event');
+            });
+
+            alert($bt1[0]);//jquery转dom
+
+            $("<div>test</div>").appendTo("body");
+
+            var arr = [12,'avc',true];
+            alert(1);
+
+
+
+
+        });
+
+
+
+        /*
+        1，jquery中的$是一个函数，
+        2，如何为按钮添加响应函数？
+            1，使用jquery查询标签对象
+            2，使用标签对象.click(...)
+         */
+
+        /*
+        jQuery核心函数，$()表示调用该函数
+        1，传入参数为 函数 时：
+            表示页面加载完成之后，相当于window.onload=function(){},页面加载完自动调用
+        2，传入参数为 HTML字符串 时
+            会自动创建这些html标签对象
+        3，传入参数为 选择器字符串 时
+            根据传入选择器查询标签对象(id, name, tagname, .class属性值)
+        4，传入参数为 DOM对象 时
+            会把dom对象转化为jquery对象
+
+         */
+
+        /*
+        dom对象vsjquery对象：
+        1，dom：通过getElementBy...拿到的时Dom对象，createElement创建的也是
+        2，jquery：通过jquery提供的api创建的，jquery包装的，jquery查询的是jquery对象
+
+        jQuery对象的本质：dom对象的数组+jquery提供的一系列功能函数
+
+        jQuery对象与jQuery对象不能使用彼此的属性和方法
+
+        dom对象转为jquery对象：
+            现有dom对象，然后$(dom)
+        jquery对象转为dom对象
+            现有jquery对象，jqueryObject[下标] ->dom
+
+
+
+         */
+
+    </script>
+
+
+</head>
+<body>
+    <button id="btnId">hello</button>
+
+</body>
+</html>

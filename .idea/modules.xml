@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/book/book.iml" filepath="$PROJECT_DIR$/book/book.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bookstore/bookstore.iml" filepath="$PROJECT_DIR$/bookstore/bookstore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaWebTest1.iml" filepath="$PROJECT_DIR$/javaWebTest1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jqueryTest/jqueryTest.iml" filepath="$PROJECT_DIR$/jqueryTest/jqueryTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/staticWeb/staticWeb.iml" filepath="$PROJECT_DIR$/staticWeb/staticWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webTest1/webTest1.iml" filepath="$PROJECT_DIR$/webTest1/webTest1.iml" />
+    </modules>
+  </component>
+</project>

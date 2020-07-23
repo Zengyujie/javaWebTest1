@@ -1,0 +1,31 @@
+div{
+    border:1px solid red;
+    color: blue;
+    font-size: 12px;
+
+}
+span{
+    border: 1px red;
+    color: aqua;
+    border-style: dashed;
+}
+
+#div3{
+    color: beige;
+    border: 1px yellow solid;
+}
+
+.class1{
+    color: cadetblue;
+    border: yellow 2px solid;
+}
+
+span, #div3, .class1{
+    font-size: 40px;
+    width: 300px;
+    height: 200px;
+    background-color: yellow;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;/*文本居中*/
+}

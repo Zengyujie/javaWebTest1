@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /*
+        Dom 全称是document Object Model
+        1，document管理了所有HTML文档内容
+        2，document是一种树结构文件，有层级关系
+        3，它让我们把所有标签都对象化
+        4，我们可以通过document访问所有标签对象
+
+        Document对象中方法的介绍：
+        1,getElementById(elementId)
+        2,getElementByName(elementName)
+        3,getElementByTagName(tagname)
+        4,createElement(tagName)
+
+         */
+
+
+        window.onload = function(){
+            btObj1 = document.getElementById("button1");
+            btObj1.onclick = function(){
+                var username = document.getElementById("username1");
+
+                //alert(username.value);
+                var usernameText = username.value;
+                var spanInfo = document.getElementById('usernameSpan');
+                var pattern = /^\w{5,12}$/;
+                //test(str)方法用于测试字符串str是否满足匹配规则
+                if(pattern.test(usernameText)){
+                    //alert('提交成功');
+                    spanInfo.innerHTML = "<img src=\"right.png\" width=\"18\" height=\"18\"/>";
+                }else{
+                    spanInfo.innerHTML = "<img src=\"wrong.png\" width=\"18\" height=\"18\"/>";
+                    //innerHTML 属性可读可写
+                }
+            }
+
+
+            btAll = document.getElementById('btAll');
+            btCancel = document.getElementById('btCancel');
+            btReverse = document.getElementById('btReverse');
+
+            btAll.onclick = function(){
+                //根据给定name返回指定的集合
+                var checkboxs = document.getElementsByName('hobby');
+                checkboxs[0].checked;//复选框的选中状态，可读可写
+                for(var i = 0; i < checkboxs.length; i++){
+                    checkboxs[i].checked = true;
+                }
+
+            }
+
+            btCancel.onclick = function(){
+                var checkboxs = document.getElementsByName('hobby');
+                checkboxs[0].checked;
+                for(var i = 0; i < checkboxs.length; i++){
+                    checkboxs[i].checked = false;
+                }
+            }
+
+            btReverse.onclick = function(){
+                var checkboxs = document.getElementsByName('hobby');
+                checkboxs[0].checked;
+                for(var i = 0; i < checkboxs.length; i++){
+                    checkboxs[i].checked = !checkboxs[i].checked;
+                }
+            }
+
+
+        }
+
+
+        //正则表达式
+        //1，是否包含字符'e'
+        var p1 = new RegExp('e');//或者 var p1 = /'e'/
+        var str = 'abc';
+        //alert(p1.test(str));
+
+        //2, 是否包含a,b,c中任意一个
+        var p2 = /[abc]/;
+
+        //3,是否包含小写字母
+        var p3 = /[a-z]/;
+
+        //4,是否包含大写字母
+        var p4 = /[A-Z]/;
+
+        //5,是否包含数字
+        var p5 = /[0-9]/;
+
+        //6，是否包含abc字符以外的字符
+        var p6 = /[^abc]/;
+
+        //7，是否包含任意指定选项
+        var p7 = /(red|blue|green)/;
+
+        /*
+        元字符
+        \w   单词字符：[0-9][a-z][A-Z]_
+        \W   非单词字符
+        :    单个字符，除了换行和结束符
+        \d   查找数字
+        \D   查找非数字
+        \s   查找空白字符
+        \b   匹配单词边界
+        \B   匹配非单词边界
+        \0   查找NUL字符
+        \n   换行符
+        \f   换页符
+        \r   回车符
+        \t   制表符
+
+         */
+
+        var p8 = /\w/;
+
+        /*
+        量词：
+        n+   匹配至少一个n
+        n*   匹配0到多个n
+        n?   匹配0或1个n
+        n{X}    匹配连续X个n
+        n{X, Y}  连续n的个数大于等于X，小于等于Y。部分匹配也会返回true
+        n{X, }   匹配至少X个n
+        n$       以n结尾
+        ^n       以n开头
+        ?=n      其后紧接着n
+        ?!n      其后没有紧接着n
+
+
+
+         */
+
+        var p9 = /a+/;
+        var p10 = /a{3,5}/;//部分匹配即可
+        var str1 = 'sdergaaaaaaaage';
+        //alert(p10.test(str1));//true
+
+        //表示必须完全匹配
+        var p11 = /^a{3,5}$/;
+
+
+/*
+三个查询方法的优先顺序是：
+有id优先查id，没有id优先name，没有两者用tagname
+以上三个方法都要在页面加载完成时才能调用
+
+页面读完，会调用window.onload的方法
+
+静态之所以能执行，是因为在触发静态的事件时，页面已经加载完了
+
+ */
+
+/*
+节点的常用属性和方法
+方法 ：
+1,getElementByTagName() 获取当前节点指定标签名的孩子节点
+2,appendChild(child) 添加一个子节点
+
+属性：
+1，childNodes 获取当前节点所有的孩子节点
+2，lastChild
+3，firstChild
+4，parentNode
+5，nextSibling
+6,previousSibling
+7,className  获取当前标签的class属性值
+8,innerHTML  获取标签中的内容
+9,innerText  获取标签中的文本
+
+
+
+
+
+ */
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+username:<input type="text" id="username1"/>
+<span id="usernameSpan" style="color: red">
+    <img src="right.png" width="18" height="18"/>
+</span>
+<button id="button1">check</button>
+
+<input type="checkbox" name="hobby" value="java"/>
+<input type="checkbox" name="hobby" value="c++"/>
+<input type="checkbox" name="hobby" value="python"/>
+<button id="btAll">all</button>
+<button id="btCancel">cancel</button>
+<button id="btReverse">reverse</button>
+
+
+</body>
+</html>
